@@ -9,7 +9,9 @@ import {
   Settings, 
   Menu,
   X,
-  Home
+  Home,
+  AlertCircle,
+  ClipboardCheck
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -24,6 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     { name: 'Dashboard', path: '/', icon: Home },
     { name: 'Risk Assessment', path: '/risk-assessment', icon: Shield },
     { name: 'Compliance', path: '/compliance', icon: ClipboardList },
+    { name: 'Audit Management', path: '/audit-management', icon: ClipboardCheck },
     { name: 'Policies', path: '/policies', icon: FileText },
     { name: 'Reports', path: '/reports', icon: BarChart3 },
     { name: 'Settings', path: '/settings', icon: Settings },

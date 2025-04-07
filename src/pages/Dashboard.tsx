@@ -28,6 +28,9 @@ const Dashboard = () => {
       dueDate: '2025-04-15',
       priority: 'high',
       status: 'pending',
+      category: 'risk',
+      description: 'Conduct comprehensive risk assessment for Q2 including all departments and update the risk register accordingly.',
+      assignee: 'Risk Manager'
     },
     {
       id: '2',
@@ -35,6 +38,9 @@ const Dashboard = () => {
       dueDate: '2025-04-20',
       priority: 'medium',
       status: 'in-progress',
+      category: 'policy',
+      description: 'Review and update the data privacy policy to ensure compliance with the latest GDPR requirements.',
+      assignee: 'Legal Counsel'
     },
     {
       id: '3',
@@ -42,6 +48,9 @@ const Dashboard = () => {
       dueDate: '2025-04-12',
       priority: 'high',
       status: 'pending',
+      category: 'compliance',
+      description: 'Review and validate access controls for critical systems as part of ISO 27001 compliance.',
+      assignee: 'Security Officer'
     },
     {
       id: '4',
@@ -49,8 +58,31 @@ const Dashboard = () => {
       dueDate: '2025-04-30',
       priority: 'low',
       status: 'in-progress',
+      category: 'compliance',
+      description: 'Ensure all employees complete the required security awareness training module.',
+      assignee: 'HR Manager'
     },
-  ] as const;
+    {
+      id: '5',
+      title: 'Investigate Data Breach Incident',
+      dueDate: '2025-04-10',
+      priority: 'high',
+      status: 'in-progress',
+      category: 'incident',
+      description: 'Investigate the reported data breach incident in the marketing department and prepare an incident report.',
+      assignee: 'Incident Response Team'
+    }
+  ];
+  
+  const handleTaskUpdate = (taskId: string, status: string) => {
+    console.log(`Task ${taskId} status updated to ${status}`);
+    // In a real application, this would update the task status in the database
+  };
+
+  const handleTaskAssign = (taskId: string, assignee: string) => {
+    console.log(`Task ${taskId} assigned to ${assignee}`);
+    // In a real application, this would update the task assignee in the database
+  };
   
   return (
     <div className="space-y-6">
@@ -99,7 +131,12 @@ const Dashboard = () => {
       </div>
       
       <div>
-        <TaskList tasks={tasks} />
+        <TaskList 
+          tasks={tasks} 
+          showCategory={true}
+          onTaskUpdate={handleTaskUpdate}
+          onTaskAssign={handleTaskAssign}
+        />
       </div>
     </div>
   );

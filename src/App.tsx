@@ -11,6 +11,7 @@ import Compliance from "./pages/Compliance";
 import Policies from "./pages/Policies";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import AuditManagement from "./pages/AuditManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/risk-assessment" element={<Layout><RiskAssessment /></Layout>} />
           <Route path="/compliance" element={<Layout><Compliance /></Layout>} />
           <Route path="/policies" element={<Layout><Policies /></Layout>} />
+          <Route path="/audit-management" element={<Layout><AuditManagement /></Layout>} />
           <Route path="/reports" element={<Layout><Reports /></Layout>} />
           <Route path="/settings" element={<Layout><Settings /></Layout>} />
           <Route path="*" element={<NotFound />} />
