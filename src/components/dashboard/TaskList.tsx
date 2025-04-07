@@ -13,7 +13,7 @@ interface Task {
 }
 
 interface TaskListProps {
-  tasks: Task[];
+  tasks: readonly Task[] | Task[]; // Accept both readonly and mutable arrays
 }
 
 const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
