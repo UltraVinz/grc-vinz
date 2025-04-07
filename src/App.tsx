@@ -12,6 +12,7 @@ import Policies from "./pages/Policies";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import AuditManagement from "./pages/AuditManagement";
+import Incidents from "./pages/Incidents";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/compliance" element={<Layout><Compliance /></Layout>} />
           <Route path="/policies" element={<Layout><Policies /></Layout>} />
           <Route path="/audit-management" element={<Layout><AuditManagement /></Layout>} />
+          <Route path="/incidents" element={<Layout><Incidents /></Layout>} />
           <Route path="/reports" element={<Layout><Reports /></Layout>} />
           <Route path="/settings" element={<Layout><Settings /></Layout>} />
           <Route path="*" element={<NotFound />} />

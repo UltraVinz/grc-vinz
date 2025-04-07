@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Shield, AlertTriangle, ClipboardCheck, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import StatCard from '@/components/dashboard/StatCard';
 import RiskSummary from '@/components/dashboard/RiskSummary';
 import ComplianceStatus from '@/components/dashboard/ComplianceStatus';
@@ -92,37 +92,45 @@ const Dashboard = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard 
-          title="Total Risks" 
-          value="46" 
-          change={-12} 
-          icon={<Shield size={18} className="text-white" />} 
-          iconColor="bg-grc-navy"
-          borderColor="border-grc-navy/10"
-        />
-        <StatCard 
-          title="High Risks" 
-          value="8" 
-          change={5} 
-          icon={<AlertTriangle size={18} className="text-white" />} 
-          iconColor="bg-grc-danger"
-          borderColor="border-grc-danger/10"
-        />
-        <StatCard 
-          title="Compliance Rate" 
-          value="78%" 
-          change={3} 
-          icon={<ClipboardCheck size={18} className="text-white" />} 
-          iconColor="bg-grc-success"
-          borderColor="border-grc-success/10"
-        />
-        <StatCard 
-          title="Policies" 
-          value="24" 
-          icon={<FileText size={18} className="text-white" />} 
-          iconColor="bg-grc-teal"
-          borderColor="border-grc-teal/10"
-        />
+        <Link to="/risk-assessment" className="block">
+          <StatCard 
+            title="Total Risks" 
+            value="46" 
+            change={-12} 
+            icon={<Shield size={18} className="text-white" />} 
+            iconColor="bg-grc-navy"
+            borderColor="border-grc-navy/10"
+          />
+        </Link>
+        <Link to="/incidents" className="block">
+          <StatCard 
+            title="Active Incidents" 
+            value="5" 
+            change={2} 
+            icon={<AlertTriangle size={18} className="text-white" />} 
+            iconColor="bg-grc-danger"
+            borderColor="border-grc-danger/10"
+          />
+        </Link>
+        <Link to="/compliance" className="block">
+          <StatCard 
+            title="Compliance Rate" 
+            value="78%" 
+            change={3} 
+            icon={<ClipboardCheck size={18} className="text-white" />} 
+            iconColor="bg-grc-success"
+            borderColor="border-grc-success/10"
+          />
+        </Link>
+        <Link to="/policies" className="block">
+          <StatCard 
+            title="Policies" 
+            value="24" 
+            icon={<FileText size={18} className="text-white" />} 
+            iconColor="bg-grc-teal"
+            borderColor="border-grc-teal/10"
+          />
+        </Link>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -134,8 +142,8 @@ const Dashboard = () => {
         <TaskList 
           tasks={tasks} 
           showCategory={true}
-          onTaskUpdate={handleTaskUpdate}
-          onTaskAssign={handleTaskAssign}
+          onTaskUpdate={(taskId, status) => console.log(`Task ${taskId} status updated to ${status}`)}
+          onTaskAssign={(taskId, assignee) => console.log(`Task ${taskId} assigned to ${assignee}`)}
         />
       </div>
     </div>
